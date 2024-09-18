@@ -1,0 +1,95 @@
+body{
+    display:flex;
+    flex-direction: column;
+    min-height:100vh;
+}
+.container-fluid{
+    flex:1;
+}
+
+
+
+.navbar{
+    height:5rem;
+    background-color: white;
+}
+
+.navbar-brand,i{
+    font-size:2rem;
+    color:#FF385C;
+    margin-right:1rem;
+}
+
+.nav-link{
+    color:black;
+}
+footer{
+    background-color: #ebebeb;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    height:8rem;
+    margin-top:2rem;
+    padding:1rem;
+    
+    
+}
+
+.privacy a{
+    padding:5px;
+    text-decoration: none;
+    color:black;
+}
+.privacy a:hover{
+     text-decoration: underline;
+}
+p{
+    color:black;
+    margin:0.5rem 0 ;
+}
+/* cards */
+.listing-card{
+    border:none;
+    margin-bottom:2.5rem;
+   }
+.card-img-top{
+    border-radius:1rem;
+    height:20rem;
+    width:100%;
+}
+.card-body{
+    padding:0 ;
+}
+.card-text{
+    font-weight:400;
+}
+.card-img-overlay{
+    opacity:0;
+}
+.card-img-overlay:hover{
+    opacity:0.2;
+    background-color: white;
+}
+
+.card-style{
+    display:flex;
+    flex-direction: column ;
+   
+    align-items: center;
+   
+
+}
+
+/* FORM */
+.form-label{
+    font-weight:600;
+  
+}
+.add-btn{
+   background-color:#FF385C;
+   border:none;
+} 
+.edit-btn{
+    background-color:#FF385C;
+    border:none;
+ } 
