@@ -1,9 +1,6 @@
 if(process.env.NODE_ENV !="production"){
     require('dotenv').config();
 }
-
-
-
 //E X P R E S S
 
 const express=require('express');
@@ -73,10 +70,6 @@ async function main(){
 main().then((res)=>{console.log("Connected to DB")})
 .catch((err)=>{console.log(err);} );
 
-app.get("/",(req,res)=>{
-    console.log("Root is Working.");
-    res.send("Root is Working.")
-});
 app.use(session(sessionOptions));
 app.use(flash());
 //Authentication
@@ -89,7 +82,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
     res.locals.successMsg=req.flash("success");
     res.locals.errorMsg=req.flash("error");
-    res.locals.currentUser=req.user;
+    res.locals.currUser=req.user;
 
     next();
 });
@@ -101,7 +94,7 @@ app.use('/',ruser);
 //Error Handler
 
 app.all("*",(req,res,next)=>{
-    next(new ExpressError(404,"Page not found !"));
+    next(new ExpressError(404,"Page not found !!"));
 })
 app.use((err,req,res,next)=>{
     let {status=500,message="Something went wrong..."}=err;

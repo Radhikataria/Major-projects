@@ -11,7 +11,11 @@ module.exports.renderNewForm=(req,res)=>{
 }
 module.exports.showListing=async (req,res)=>{
     let {id}= req.params;
-    const info= await Listings.findById(id).populate('reviews').populate('owner'); 
+    const info= await Listings.findById(id)
+    .populate({path:'reviews',populate:{
+            path:'author'
+        },
+    }).populate('owner'); 
     if(!info){
         req.flash("error","Listing you requested for does not exist.");
         res.redirect("/listings");
@@ -42,7 +46,7 @@ module.exports.createListing=async (req,res)=>{
 }
 module.exports.updateListing=async (req,res)=>{
     let {id}= req.params;
-    const data=await Listings.findByIdAndUpdate(id,{...req.body.listing},{new:true});
+    let data=await Listings.findByIdAndUpdate(id,{...req.body.listing},{new:true});
     if(typeof req.file !=="undefined"){
         let url= req.file.path;
         let filename=req.file.filename;

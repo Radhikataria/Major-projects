@@ -14,7 +14,7 @@ router.route('/signup')
         const {username,email,password}=req.body;
         const data=new User({username,email});
         let registeredUser=await User.register(data,password); //data save
-        req.login(registeredUser,(err)=>{
+        req.login(registeredUser,(err)=>{ //when user signed-up then he will be logged-in using req.login()
             if(err){
                return next(err);
             }
@@ -39,10 +39,11 @@ router.route("/login")
         req.flash("success","Welcome Back!");
         let redirectUrl=res.locals.redirectUrl || '/listings';
         res.redirect(redirectUrl);
+        // console.log("",redirectUrl);
    });
 
 //LOGOUT
-router.get('/logout',(req,res,next)=>{
+router.get('/logout',(req,res,next)=>{ 
     req.logout((err)=>{
         if(err){
             next(err);
