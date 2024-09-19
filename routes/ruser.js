@@ -5,7 +5,7 @@ const wrapAsync = require('../utils/wrapAsync.js');
 const passport=require('passport');
 const {saveRedirectUrl}=require('../utils/middleware.js');
 
-router.route('/signup')
+router.route('/signup') 
 .get((req,res)=>{
     res.render('users/signup.ejs');
  })
@@ -13,7 +13,7 @@ router.route('/signup')
     try{
         const {username,email,password}=req.body;
         const data=new User({username,email});
-        let registeredUser=await User.register(data,password);
+        let registeredUser=await User.register(data,password); //data save
         req.login(registeredUser,(err)=>{
             if(err){
                return next(err);

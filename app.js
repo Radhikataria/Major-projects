@@ -18,7 +18,7 @@ const ExpressError=require('./utils/ExpressError.js');
 const session=require('express-session');
 const MongoStore=require('connect-mongo');
 const flash=require('connect-flash');
-
+//routers
 const rlisting=require('./routes/rlisting.js');
 const rreview=require('./routes/rreview.js');
 const ruser=require('./routes/ruser.js');
@@ -79,6 +79,7 @@ app.get("/",(req,res)=>{
 });
 app.use(session(sessionOptions));
 app.use(flash());
+//Authentication
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -88,7 +89,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
     res.locals.successMsg=req.flash("success");
     res.locals.errorMsg=req.flash("error");
-    res.locals.currUser=req.user;
+    res.locals.currentUser=req.user;
 
     next();
 });

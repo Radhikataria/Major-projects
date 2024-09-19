@@ -12,6 +12,10 @@ module.exports.renderNewForm=(req,res)=>{
 module.exports.showListing=async (req,res)=>{
     let {id}= req.params;
     const info= await Listings.findById(id).populate('reviews').populate('owner'); 
+    if(!info){
+        req.flash("error","Listing you requested for does not exist.");
+        res.redirect("/listings");
+    }
     res.render("show.ejs",{info});
 };
 module.exports.createListing=async (req,res)=>{
@@ -28,13 +32,16 @@ module.exports.createListing=async (req,res)=>{
  module.exports.editForm=async (req,res)=>{
     let {id}= req.params;
     const data= await Listings.findById(id);
+    if(!data){
+        req.flash("error","Listing you requested for does not exist.");
+        res.redirect("/listings");
+    }
     let originalImageUrl=data.image.url;
     originalImageUrl=originalImageUrl.replace("/upload","/upload/w_250,e_blur:95");
     res.render("edit.ejs", {data,originalImageUrl}) ;
 }
 module.exports.updateListing=async (req,res)=>{
     let {id}= req.params;
-   
     const data=await Listings.findByIdAndUpdate(id,{...req.body.listing},{new:true});
     if(typeof req.file !=="undefined"){
         let url= req.file.path;

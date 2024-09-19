@@ -4,7 +4,7 @@ module.exports.isLoggedIn=(req,res,next)=>{
         req.flash("error","You must logged-in before any changes.");
        return res.redirect('/login');
     }
-    next();
+    next(); 
 };
 
 module.exports.saveRedirectUrl=(req,res,next)=>{

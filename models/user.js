@@ -7,6 +7,6 @@ const userSchema=new mongoose.Schema({
         required: true,
     },
 });
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose); //for authentication we're connecting user schema to passport
 const user=mongoose.model("user",userSchema);
 module.exports=user;
