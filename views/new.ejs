@@ -4,12 +4,13 @@
     <div class="row mt-3">
         <div class="col-6 offset-2">
     <h3> Enter New Listing</h3><br>
-    <form method="POST" action="/listings"enctype="multipart/form-data" class="needs-validation" novalidate>
-
-        <label for="main" class="form-label">Title:&emsp;&emsp;&emsp;</label>
-        <input class="form-control" id="main" type="text" placeholder="Enter title" name="listing[title]"required>
-        <div class="invalid-feedback">Please provide a title.</div>
-        <br><br>
+    <form method="POST" 
+     action="/listings"enctype="multipart/form-data"
+     class="needs-validation" novalidate>
+     <label for="main" class="form-label">Title:&emsp;&emsp;&emsp;</label>
+     <input class="form-control" id="main" type="text" placeholder="Enter title" name="listing[title]"required>
+     <div class="invalid-feedback">Please provide a title.</div>
+     <br><br>
 
         <label for="desc" class="form-label">Description:</label>
         <textarea id="desc" class="form-control" name="listing[description]" placeholder="Enter Here..."required></textarea>
@@ -17,7 +18,7 @@
         <br><br>
 
         <label for="img" class="form-label">Upload Image:&emsp;&emsp;</label>
-        <input type="file" id="img" class="form-control" name="listing[image]">
+        <input type="file" id="img" class="form-control" name="listing[image]" required>
         <div class="invalid-feedback">Kindly upload an image.</div>
         <br><br>
 

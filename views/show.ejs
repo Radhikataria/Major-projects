@@ -10,7 +10,7 @@
       <div class="card-body"> 
        <h5 class="card-title"><%= info.title %></h5>
        <p class="card-text"><%= info.description %></p>
-       <p class="card-text">&#8377;<%= info.price %>/night </p>
+       <p class="card-text">&#8377;<b><%= info.price%>/night</b> </p>
        <p class="card-text"><b> <%= info.location %> </b></p>
        <p class="card-text"><b><%= info.country %> </b></p>
        <% if(currUser && currUser.id === info.owner.id) {%>
@@ -56,7 +56,7 @@
         <% } %>
       </form>
       <hr/>
-      <h3>All Reviews</h3>
+      
       <div class="row">
         <% for(feedback of info.reviews ){ %>
           <div class="card text-bg-light mb-3 ms-3 col-5">

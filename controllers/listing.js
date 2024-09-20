@@ -1,7 +1,7 @@
 
 const Listings = require('../models/listing.js');
 
-module.exports.index=async (req,res)=>{
+module.exports.home=async (req,res)=>{
     const info= await Listings.find({}); 
     res.render("home.ejs",{info});
 }
@@ -23,7 +23,7 @@ module.exports.showListing=async (req,res)=>{
     res.render("show.ejs",{info});
 };
 module.exports.createListing=async (req,res)=>{
-     let url= req.file.path;
+     let url= req.file.path; 
      let filename=req.file.filename;
      const info=new Listings(req.body.listing);
      info.owner=req.user._id; 
@@ -50,7 +50,7 @@ module.exports.updateListing=async (req,res)=>{
     if(typeof req.file !=="undefined"){
         let url= req.file.path;
         let filename=req.file.filename;
-        data.image={url,filename};
+        data.image={url,filename}; //new image updated
         await data.save();
     }
     req.flash("success","Listing Updated!");
