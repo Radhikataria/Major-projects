@@ -89,7 +89,13 @@ app.use((req,res,next)=>{
 
 app.use('/listings',rlisting);
 app.use('/listings/:id/reviews',rreview);
-app.use('/',ruser);
+app.use('/',ruser); 
+
+app.get('/',(req,res)=>{
+    res.redirect('/listings');
+})
+
+
 
 //Error Handler
 

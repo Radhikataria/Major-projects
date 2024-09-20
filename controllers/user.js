@@ -30,7 +30,7 @@ module.exports.login=async(req,res)=>{
     req.flash("success","Welcome Back!");
     let redirectUrl=res.locals.redirectUrl || '/listings';
     res.redirect(redirectUrl);
-    // console.log("",redirectUrl);
+    
 }
 module.exports.logout=(req,res,next)=>{ 
     req.logout((err)=>{

@@ -6,7 +6,6 @@ module.exports.createReview=async(req,res)=>{
     const ldata= await Listings.findById(id);
     const rdata= new Reviews(req.body.reviews); //data-insertion
     rdata.author=req.user._id;
-    console.log(rdata);
     ldata.reviews.push(rdata);
     await rdata.save(); 
     await ldata.save();
