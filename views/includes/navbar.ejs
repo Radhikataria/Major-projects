@@ -1,36 +1,30 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top" style="height:5rem;">
+<nav class="navbar navbar-expand-lg border-bottom sticky-top" style="background-color:white;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"><i class="fa-brands fa-airbnb"></i>wanderlust</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-     data-bs-target="#navbarNavAltMarkup">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        &nbsp;&nbsp;<a class="nav-link" href="/listings">Home</a>
-        &nbsp;&nbsp;<a class="nav-link" href="/listings/new">Add New</a>
-        
+    <div class="collapse navbar-collapse me-auto mb-2 mb-lg-0" id="navbarNavAltMarkup">
+
+      <div class="navbar-nav" style="background-color:white;">
+
+        <a class="nav-link active" href="/listings">Home</a>
+        <a class="nav-link active" href="/listings/new">Add New</a>
+
       </div>
-      <div class="navbar-nav ms-auto">
-       
+      <div class="navbar-nav" style="background-color:white;">
+
         <% if(!currUser) { %>
-          <a class="nav-link "  href="/signup"><b>Signup</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% }%>
-        <% if(currUser){%>
-          <a class="nav-link" href="/logout"><b>Log out</b></a> 
-        <%}%>
-        
-        
+          <a class="nav-link active" href="/signup">Signup</a>
+          <a class="nav-link active" href="/login">Log in</a>
+          <% }%>
+            <% if(currUser){%>
+              <a class="nav-link active" href="/logout">Log out</a>
+              <%}%>
+
+
       </div>
     </div>
   </div>
 </nav>
-   
-
-
-
-
-
-  

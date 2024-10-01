@@ -7,22 +7,23 @@ body{
     flex:1;
 }
 
-
-
-.navbar{
-    height:5rem;
-    background-color: white;
+.nav-link{
+    margin-left:90px;
+    font-weight:400;
+    letter-spacing:1px;
+    text-align: center;
+    font-size: 1rem;
 }
 
 .navbar-brand,i{
     font-size:2rem;
     color:#FF385C;
     margin-right:1rem;
+    text-align: center;
 }
 
-.nav-link{
-    color:black;
-}
+
+
 footer{
     background-color: #ebebeb;
     display:flex;
